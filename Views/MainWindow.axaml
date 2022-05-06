@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Avalonia1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="700"
+        x:Class="Avalonia1.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia1"
+        Name="window1"
+		SizeToContent ="3">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Spacing="5" Margin="0,20,0,0">
+            <TextBlock Grid.Column="1" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox Name="ComboBox1" HorizontalAlignment="Center" Items="{Binding PortList}" SelectedIndex="0"></ComboBox>
+            <StackPanel Spacing="10" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Command="{Binding ResetPorts}">Reset</Button>
+                <Button Command="{Binding StartListening}" CommandParameter="{Binding ElementName=ComboBox1,Path=SelectedItem}">Start</Button>
+                <Button Command="{Binding UpdatePorts}">Update</Button>
+                <Button Command="{Binding ClearText}" CommandParameter="{Binding ElementName=TextBox1,Path=Text}">Clear</Button>
+                <Button Command="{Binding SaveData}" CommandParameter="{Binding ElementName=TextBox1,Path=Text}">Save</Button>
+
+			</StackPanel>
+            <TextBox Margin="10" Name="TextBox1" CaretIndex="{Binding MonitorText.Length}" Text="{Binding MonitorText}" Height="500" Width="500" ></TextBox>
+           
+        </StackPanel> 
+            </Grid>
+</Window>
