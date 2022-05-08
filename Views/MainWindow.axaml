@@ -3,12 +3,12 @@
         xmlns:vm="using:Avalonia1.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="700"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="800"
         x:Class="Avalonia1.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia1"
         Name="window1"
-		SizeToContent ="3">
+		SizeToContent ="1">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -36,7 +36,6 @@
 
 			</StackPanel>
             <TextBox Margin="10" Name="TextBox1" CaretIndex="{Binding MonitorText.Length}" Text="{Binding MonitorText}" Height="500" Width="500" ></TextBox>
-           
         </StackPanel> 
             </Grid>
 </Window>
