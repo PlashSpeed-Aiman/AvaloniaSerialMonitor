@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="800"
         x:Class="Avalonia1.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Avalonia1"
+        Title="Arduino Serial Monitor"
         Name="window1"
 		SizeToContent ="1">
 
@@ -32,7 +32,7 @@
                 <Button Command="{Binding StartListening}" CommandParameter="{Binding ElementName=ComboBox1,Path=SelectedItem}">Start</Button>
                 <Button Command="{Binding UpdatePorts}">Update</Button>
                 <Button Command="{Binding ClearText}" CommandParameter="{Binding ElementName=TextBox1,Path=Text}">Clear</Button>
-                <Button Command="{Binding SaveData}" CommandParameter="{Binding ElementName=TextBox1,Path=Text}">Save</Button>
+                <Button Command="{Binding LogData}" CommandParameter="{Binding ElementName=TextBox1,Path=Text}">Save</Button>
 
 			</StackPanel>
             <TextBox Margin="10" Name="TextBox1" CaretIndex="{Binding MonitorText.Length}" Text="{Binding MonitorText}" Height="500" Width="500" ></TextBox>

@@ -44,7 +44,7 @@ namespace Avalonia1.ViewModels
 
 
         }
-        public void SaveData(string text)
+        public void LogData(string text)
         {
             LoggerAsync.SaveToTextFileAsync(text);
         }
@@ -78,7 +78,7 @@ namespace Avalonia1.ViewModels
           
             _serialPort.DataReceived += DataReceivedHandler;
             dt.Tick += new EventHandler(saveData);
-            dt.Interval = new TimeSpan(0, 1, 0);
+            dt.Interval = new TimeSpan(0, 30, 0);
             dt.Start();
         }
 
@@ -109,7 +109,6 @@ namespace Avalonia1.ViewModels
             
             Dispatcher.UIThread.InvokeAsync(() =>
             {
-
                 MonitorText += msg + $" {DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()}\n";
                 this.RaisePropertyChanged("MonitorText");
             });
